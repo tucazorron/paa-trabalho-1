@@ -1,9 +1,12 @@
-# PAA - Trabalho 1
+# Projeto e Análise de Algoritmos - Trabalho 1
 
-### Aluno
+### Professor
 
-- Artur Filgueiras Scheiba Zorron
-- 180013696
+Jan
+
+### Semestre
+
+2021/1
 
 ### Compilação
 
@@ -11,4 +14,4 @@
 
 ### Execução
 
-`./a.out << input.txt`
+`./a.out`
