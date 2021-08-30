@@ -19,7 +19,7 @@ int binarySearch(int arr[], int p, int r, int num)
 int main(void)
 {
     int n, q;
-    cin >> n >> q;
+    cin >> n, q;
     char input[100000];
     cin >> input;
     int array[n], j = 0;
