@@ -1,48 +1,46 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
-int binarySearch(int arr[], int p, int r, int num)
+int binary_search(int array[], int left, int right, int num)
 {
-    if (p <= r)
+    if (left <= right)
     {
-        int mid = (p + r) / 2;
-        if (arr[mid] == num)
-            return mid;
-        if (arr[mid] > num)
-            return binarySearch(arr, p, mid - 1, num);
-        if (arr[mid] < num)
-            return binarySearch(arr, mid + 1, r, num);
+        int middle = (left + right) / 2;
+
+        if (array[middle] == num && array[middle - 1] != num)
+        {
+            return middle;
+        }
+
+        else if (array[middle] >= num)
+        {
+            return binary_search(array, left, middle - 1, num);
+        }
+
+        else if (array[middle] < num)
+        {
+            return binary_search(array, middle + 1, right, num);
+        }
     }
     return -1;
 }
-int main(void)
+
+int main()
 {
     int n, q;
-    cin >> n, q;
-    char input[100000];
-    cin >> input;
-    int array[n], j = 0;
+    scanf("%d %d", &n, &q);
+
+    int array[n];
     for (int i = 0; i < n; i++)
     {
-        array[i] = 0;
+        scanf("%d", &array[i]);
     }
-    for (int i = 0; input[i] != '\0'; i++)
-    {
-        if (input[i])
-        {
-            j++;
-        }
-        else
-        {
-            array[j] = array[j] * 10 + stoi(&input[i]);
-        }
-    }
+
     for (int i = 0; i < q; i++)
     {
         int num;
-        cin >> num;
-        int index = binarySearch(array, 0, n - 1, num);
-        cout << index << endl;
+        scanf("%d", &num);
+        int index = binary_search(array, 0, n - 1, num);
+        printf("%d\n", index);
     }
 }
